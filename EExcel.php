@@ -187,6 +187,10 @@ class EExcel extends CApplicationComponent
 			$this->_excel->setActiveSheetIndex(0)->mergeCells($headerCellRange);
 		}
 
+		foreach(range($analyze[0], $this->_excel->getActiveSheet()->getHighestColumn()) as $columnID) {
+   			$this->_excel->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+		}
+
 		return $this;
 	}
 
@@ -206,7 +210,7 @@ class EExcel extends CApplicationComponent
 				$writerType = 'Excel5';
 			break;
 		}
-		$objWriter = PHPExcel_IOFactory::createWriter($this->_excel, 'Excel2007');
+		$objWriter = PHPExcel_IOFactory::createWriter($this->_excel, $writerType);
 		$objWriter->save($filepath);
 	}
 
