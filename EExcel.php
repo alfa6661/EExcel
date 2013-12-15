@@ -65,12 +65,12 @@ class EExcel extends CApplicationComponent
 		// default param
 		$this->_headerFormat = array(
 			'font' => array(
-		        'bold' => true
+				'bold' => true
 			),
 			'fill' => array(
-	            'type' => PHPExcel_Style_Fill::FILL_SOLID,
-	            'color' => array('rgb' => 'FF0000')
-	        )
+				'type' => PHPExcel_Style_Fill::FILL_SOLID,
+				'color' => array('rgb' => 'FF0000')
+			)
 		);
 		parent::init();
 	}
